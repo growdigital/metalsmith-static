@@ -2,6 +2,7 @@ var Metalsmith  = require('metalsmith');
 var markdown    = require('metalsmith-markdown');
 var layouts     = require('metalsmith-layouts');
 var permalinks  = require('metalsmith-permalinks');
+var move        = require('metalsmith-move');
 
 Metalsmith(__dirname)
   .metadata({
@@ -12,8 +13,11 @@ Metalsmith(__dirname)
   })
   .source('./src')
   .destination('./build')
-  .clean(false)
+  .clean(true)
   .use(markdown())
+  .use(move({
+    'posts': '{relative}/{base}'
+  }))
   .use(permalinks())
   .use(layouts({
     engine: 'handlebars'
