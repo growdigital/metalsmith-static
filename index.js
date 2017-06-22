@@ -3,6 +3,7 @@ var markdown    = require('metalsmith-markdown');
 var layouts     = require('metalsmith-layouts');
 var permalinks  = require('metalsmith-permalinks');
 var move        = require('metalsmith-move');
+var writemetadata    = require('metalsmith-writemetadata');
 
 Metalsmith(__dirname)
   .metadata({
@@ -14,6 +15,10 @@ Metalsmith(__dirname)
   .source('./src')
   .destination('./build')
   .clean(true)
+  // For debugging, use metadata
+  // .use(writemetadata({
+  //   pattern: ['*.md', '*.html']
+  // }))
   .use(markdown())
   .use(move({
     'posts': '{relative}/{base}'
