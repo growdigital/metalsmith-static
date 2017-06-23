@@ -2,7 +2,7 @@ var Metalsmith  = require('metalsmith');
 var markdown    = require('metalsmith-markdown');
 var layouts     = require('metalsmith-layouts');
 var permalinks  = require('metalsmith-permalinks');
-var move        = require('metalsmith-move');
+var move        = require('metalsmith-move').default;
 var writemetadata    = require('metalsmith-writemetadata');
 
 Metalsmith(__dirname)
@@ -20,12 +20,12 @@ Metalsmith(__dirname)
   //   pattern: ['*.md', '*.html']
   // }))
   .use(markdown())
-  .use(move({
-    'posts': '{relative}/{base}'
-  }))
   .use(permalinks())
   .use(layouts({
     engine: 'handlebars'
+  }))
+  .use(move({
+    'posts': '{-title}{ext}'
   }))
   .build(function(err, files) {
     if (err) { throw err; }
