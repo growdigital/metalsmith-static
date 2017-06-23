@@ -26,7 +26,7 @@ Metalsmith(__dirname)
   }))
   .use(move({
     'posts': '{-title}{ext}',
-    'images/**/*.jpg': '/img/{name}{ext}'
+    'images/**/*.jpg': '/images/{name}{ext}'
   }))
   .build(function(err, files) {
     if (err) { throw err; }
