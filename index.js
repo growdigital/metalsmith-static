@@ -25,7 +25,8 @@ Metalsmith(__dirname)
     engine: 'handlebars'
   }))
   .use(move({
-    'posts': '{-title}{ext}'
+    'posts': '{-title}{ext}',
+    'images/**/*.jpg': '/img/{name}{ext}'
   }))
   .build(function(err, files) {
     if (err) { throw err; }
