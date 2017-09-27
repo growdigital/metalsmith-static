@@ -16,6 +16,18 @@
   <time>{{ date }}</time>
   {{{ contents }}}
 
+  <aside>
+    {{#each collections }}
+      <h2>List of posts using collections plugin</h2>
+      <ol>
+        {{#each this }}
+          <li><a href="/{{ path }}">{{ title }}</a></li>
+        {{/each}}
+      </ol>
+    {{/each}}
+  </aside>
+
+
   <footer>
     <p>Generated with {{ generator }} &mdash; <a href="{{ url }}">{{ url }}</a></p>
   </footer>
