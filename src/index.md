@@ -12,3 +12,5 @@ layout: layout.html
 <a href="/posts/third-post/">Third post</a>
 
 <a href="/posts/fourth-post/">Fourth post</a>
+
+Title test on surge: <http://cut-giraffe.surge.sh/>
