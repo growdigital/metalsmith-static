@@ -1,4 +1,5 @@
 ---
+title: My Static Site & Blog
 layout: layout.html
 ---
 
